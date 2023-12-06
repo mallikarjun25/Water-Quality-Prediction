@@ -4,7 +4,7 @@
 
 This repository represents the final project submission for Group 4 (The Avengers) in the DSCI-6001 (Fall 2023) course under the guidance of Dr. Ardiana Sula.
 
-## Group Members
+The group members are:
 
 - [Mallikarjun Aitha](https://www.linkedin.com/in/mallikarjun-aitha/)
 - [Siri H G](https://www.linkedin.com/in/sirihg/)
@@ -14,10 +14,6 @@ This repository represents the final project submission for Group 4 (The Avenger
 ## Project Overview
 
 This repository contains the final project submission for the Water Quality Prediction. This project employs machine learning to predict water potability, assessing safety through diverse quality indicators. The dataset includes pH, hardness, and chemical concentrations, forming the basis for predictive models. Addressing imbalances, ethical concerns, and feature analysis, the project contributes to proactive water quality management, aiming for global access to clean and safe drinking water.
-
-## Dataset Information
-
-The dataset, stored in `water_potability.csv`, encompasses key water quality parameters, including pH value, hardness, total dissolved solids (TDS), chloramines, sulfate concentration, conductivity, organic carbon, trihalomethanes, turbidity, and potability status. The target variable, 'Potability,' denotes whether water is safe for human consumption (1 for Potable, 0 for Not Potable).
 
 ## Exploratory Data Analysis (EDA)
 
