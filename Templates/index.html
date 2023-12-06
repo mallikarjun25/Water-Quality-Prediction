@@ -2,65 +2,94 @@
 <html lang="en">
 
 <head>
+    <!-- Meta tags for character set and viewport -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Link to the external stylesheet -->
     <link rel="stylesheet" href="static/styles.css">
+
+    <!-- Defer loading of the JavaScript file -->
     <script defer src="static/script.js"></script>
+
+    <!-- Title of the webpage -->
     <title>Water Quality Prediction</title>
 </head>
 
 <body>
+    <!-- Main container for the webpage content -->
     <div class="container">
+        <!-- Heading for the webpage -->
         <h2>Water Quality Prediction</h2>
+
+        <!-- Input section of the webpage -->
         <div class="input-section">
+            <!-- Left section of the input form -->
             <div class="left-section">
+                <!-- Form for collecting input values, method is set to POST, and action is set to "/predict" -->
                 <form method="POST" action="/predict">
+                    <!-- Input field for pH value -->
                     <label for="ph">pH Value:</label>
                     <input type="number" id="ph" name="ph" placeholder="Enter the pH value">
-                
+                    
+                    <!-- Input field for hardness value -->
                     <label for="hardness">Hardness:</label>
                     <input type="text" id="hardness" name="hardness" placeholder="Enter the hardness value">
-                
+                    
+                    <!-- Input field for TDS value (Solids) -->
                     <label for="solids">Solids (TDS):</label>
                     <input type="text" id="solids" name="solids" placeholder="Enter the TDS value">
                     
+                    <!-- Input field for chloramines value -->
                     <label for="chloramines">Chloramines:</label>
                     <input type="text" id="chloramines" name="chloramines" placeholder="Enter the chloramines value">
                    
+                    <!-- Input field for sulfate value -->
                     <label for="sulfate">Sulfate:</label>
                     <input type="text" id="sulfate" name="sulfate" placeholder="Enter the sulfate value">
-                   
                 </form>
             </div>
-            
+
+            <!-- Right section of the input form -->
             <div class="right-section">
+                <!-- Form for collecting input values, method is set to POST, and action is set to "/predict" -->
                 <form method="POST" action="/predict">
+                    <!-- Input field for conductivity value -->
                     <label for="conductivity">Conductivity:</label>
                     <input type="text" id="conductivity" name="conductivity" placeholder="Enter the conductivity value">
                     
+                    <!-- Input field for organic carbon value -->
                     <label for="organicCarbon">Organic Carbon:</label>
                     <input type="text" id="organicCarbon" name="organicCarbon" placeholder="Enter the organic carbon value">
     
+                    <!-- Input field for trihalomethanes value -->
                     <label for="trihalomethanes">Trihalomethanes:</label>
                     <input type="text" id="trihalomethanes" name="trihalomethanes" placeholder="Enter the trihalomethanes value">
 
+                    <!-- Input field for turbidity value -->
                     <label for="turbidity">Turbidity:</label>
                     <input type="text" id="turbidity" name="turbidity" placeholder="Enter the turbidity value">
-                    
                 </form>
-
-                <!-- <label for="potability">Potability:</label>
-                <input type="text" id="potability" name="potability" placeholder="Enter the potability value"> -->
             </div>
         </div>
-            <button onclick="predictWaterQuality()">Predict Water Potability</button> 
+
+        <!-- Button to trigger the prediction -->
+        <button onclick="predictWaterQuality()">Predict Water Potability</button> 
+
+        <!-- Placeholder for displaying the prediction result -->
         <div id="result"></div>
     </div>
+
+    <!-- JavaScript code for fetching prediction and handling the result -->
     <script>
         function predictWaterQuality() {
+            // Get the form element by its ID
             var form = document.getElementById("waterQualityForm");
+
+            // Create FormData object from the form
             var formData = new FormData(form);
 
+            // Fetch prediction from the server using a POST request
             fetch('/predict', {
                 method: 'POST',
                 body: formData
@@ -71,6 +100,7 @@
                 document.getElementById("result").innerHTML = "Predicted Potability: " + data.prediction;
             })
             .catch(error => {
+                // Log and handle errors
                 console.error('Error:', error);
             });
         }
