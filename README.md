@@ -1,50 +1,76 @@
-# Water-Quality-Prediction
+# Water Quality Prediction
 
-This repository contains an analysis of a dataset related to water quality. The dataset includes various water quality metrics for 3276 different water bodies. The analysis involves exploring, cleaning, and visualizing the data to gain insights into the quality of water and its potability for human consumption.
+## Introduction
+
+This repository represents the final project submission for Group 4 (The Avengers) in the DSCI-6001 (Fall 2023) course under the guidance of Dr. Ardiana Sula.
+
+## Group Members
+
+- [Mallikarjun Aitha](https://www.linkedin.com/in/mallikarjun-aitha/)
+- [Siri H G](https://www.linkedin.com/in/sirihg/)
+- [Shraddha Shrestha](https://www.linkedin.com/in/shraddha-shrestha-j06/)
+- Madhavi Kancham
+
+## Project Overview
+
+This repository contains the final project submission for the Water Quality Prediction. This project employs machine learning to predict water potability, assessing safety through diverse quality indicators. The dataset includes pH, hardness, and chemical concentrations, forming the basis for predictive models. Addressing imbalances, ethical concerns, and feature analysis, the project contributes to proactive water quality management, aiming for global access to clean and safe drinking water.
 
 ## Dataset Information
 
-The dataset is provided in a CSV file named `water_potability.csv` and contains the following columns:
+The dataset, stored in `water_potability.csv`, encompasses key water quality parameters, including pH value, hardness, total dissolved solids (TDS), chloramines, sulfate concentration, conductivity, organic carbon, trihalomethanes, turbidity, and potability status. The target variable, 'Potability,' denotes whether water is safe for human consumption (1 for Potable, 0 for Not Potable).
 
-1. **pH Value:** pH is a measure of the acidity or alkalinity of water.
-2. **Hardness:** Represents the water's capacity to precipitate soap due to calcium and magnesium salts.
-3. **Solids (Total Dissolved Solids - TDS):** Indicates the mineral content in water.
-4. **Chloramines:** A common disinfectant in public water systems.
-5. **Sulfate:** Concentration of sulfate in the water.
-6. **Conductivity:** Measures the ability of water to transmit an electric current.
-7. **Organic Carbon:** Total Organic Carbon (TOC) in water.
-8. **Trihalomethanes:** Chemicals found in water treated with chlorine.
-9. **Turbidity:** A measure of solid matter in the suspended state.
-10. **Potability:** Indicates whether the water is safe for human consumption (1 for Potable, 0 for Not Potable).
+## Exploratory Data Analysis (EDA)
 
-## Basic Operations
+EDA tasks focus on visualizing missing values, understanding the distribution of potability, exploring relationships between columns, calculating correlations, and creating histograms. These steps collectively provide a comprehensive understanding of the dataset.
 
-To get started with the dataset, you can load it into a pandas dataframe using the following code:
+## Results
 
+The project employed various machine learning algorithms for classification, including Logistic Regression, Decision Tree Classifier, Random Forest Classifier, K-Nearest Neighbors (KNN), Support Vector Classifier (SVM), Naive Bayes, and XGBoost. SVM stood out for its robust performance, demonstrating superior accuracy and a balanced precision-recall trade-off compared to other models.
+
+## Application Deployment
+
+A demo application was deployed using Flask, offering a simple web form for users to input water quality parameters and receive predictions on water potability. The application's code is hosted on [GitHub](https://github.com/Projects-UNH/Water-Quality-Prediction).
+
+## How to Run the Flask Application
+
+1.**Clone the Repository:**
 ```python
-import pandas as pd
-df = pd.read_csv("filepath/water_potability.csv")
+git clone https://github.com/YourUsername/Water-Quality-Prediction.git
+```
+2.**Navigate to Project Directory:**
+```python
+cd Water-Quality-Prediction
+```
+3.**Install Dependencies:**
+```python
+pip install -r requirements.txt
+```
+4. **Run the Flask App:**
+Execute the following command to run the Flask application:
+```python
+python app.py
 ```
 
-Here are some basic operations performed on the dataset:
+This will start the Flask development server.
 
-- Printing the first and last 5 rows of the dataset.
-- Checking the dataset's shape (3276 rows and 10 columns).
-- Calculating statistical measures for the dataset.
-- Detecting and handling missing values, including filling missing values for the 'ph', 'Sulfate', and 'Trihalomethanes' columns using median imputation.
+5. **Access the Application:**
+Open your web browser and go to [http://127.0.0.1:5000/](http://127.0.0.1:5000/). You should see the water quality prediction form.
 
-## Exploratory Data Analysis
+6. **Input Water Quality Parameters:**
+Fill in the values for pH, hardness, solids, chloramines, sulfate, conductivity, organic carbon, trihalomethanes, and turbidity.
 
-Exploratory data analysis (EDA) was conducted to gain insights into the water quality data. Some of the EDA tasks performed include:
+7. **Submit the Form:**
+Click the "Predict Potability" button to submit the form. The application will process your input and display the prediction results.
 
-- Visualization of missing values in a heatmap.
-- Checking the distribution of the target variable 'Potability' (safe or unsafe water).
-- Visualizing the relationship between different columns.
-- Calculating the correlation between columns and visualizing it using a heatmap.
-- Creating histograms to understand the distribution of various parameters.
+8. **Explore Results:**
+Review the prediction for water potability (Potable or Not Potable) based on the provided water quality parameters.
+
+That's it! You have successfully run the Flask application and used the machine learning model to predict water potability.
+
 
 ## Conclusion
 
-This analysis provides an overview of the water quality dataset, addressing missing data and conducting exploratory data analysis to understand the relationships between various water quality parameters and the potability of water. The dataset can be used for further analysis, modeling, and prediction of water potability based on the given parameters.
+The Water Quality Prediction project contributes to the intersection of data science and public health by leveraging machine learning techniques to ensure safe drinking water. The results highlight the potential of SVM for accurate water quality classification.
 
-Feel free to explore the Jupyter Notebook `Water_Quality_Prediction.ipynb` provided in this repository for a more detailed analysis of the dataset.
+
+Feel free to explore and contribute to the project, enhancing our understanding of water quality and safety for human consumption.
