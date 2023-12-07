@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="static/styles.css">
+    <title>Water Quality Prediction</title>
+</head>
+
+<body>
+    <div class="container">
+        <h2>Water Quality Prediction</h2>
+        <form action="/predict_waterQ" method="POST">
+            <div class="input-section">
+                <!-- Centre Section-->
+                <div class="centered-input">
+                    <label for="ph">pH:</label>
+                    <input type="number" id="ph" name="ph" placeholder="Enter the pH value" step="0.01" style="width: calc(50% - 16px); padding: 12px; text-align: center;">
+                </div>
+                <!-- Left Section -->
+                <div class="left-section">                    
+                    <label for="hardness">Hardness:</label>
+                    <input type="number" id="hardness" name="hardness" placeholder="Enter the hardness value" step="0.01" style="width: calc(50% - 16px); padding: 12px; text-align: center;">
+
+                    <label for="solids">Solids:</label>
+                    <input type="number" id="solids" name="solids" placeholder="Enter the TDS value" step="0.01" style="width: calc(50% - 16px); padding: 12px; text-align: center;">
+
+                    <label for="chloramines">Chloramines :</label>
+                    <input type="number" id="chloramines" name="chloramines" placeholder="Enter the chloramines value" step="0.01" style="width: calc(50% - 16px); padding: 12px; text-align: center;">
+
+                    <label for="sulfate">Sulfate :</label>
+                    <input type="number" id="sulfate" name="sulfate" placeholder="Enter the sulfate value" step="0.01" style="width: calc(50% - 16px); padding: 12px; text-align: center;">
+                </div>
+                <!-- Right Section -->
+                <div class="right-section">
+                    <label for="conductivity">Conductivity :</label>
+                    <input type="number" id="conductivity" name="conductivity" placeholder="Enter the conductivity value" step="0.01" style="width: calc(50% - 16px); padding: 12px; text-align: center;">
+
+                    <label for="organicCarbon">Organic Carbon :</label>
+                    <input type="number" id="organicCarbon" name="organicCarbon" placeholder="Enter the organic carbon value" step="0.01" style="width: calc(50% - 16px); padding: 12px; text-align: center;">
+                    
+                    <label for="trihalomethanes">Trihalomethanes  :</label>
+                    <input type="number" id="trihalomethanes" name="trihalomethanes" placeholder="Enter the trihalomethanes value" step="0.01" style="width: calc(50% - 16px); padding: 12px; text-align: center;">
+
+                    <label for="turbidity">Turbidity :</label>
+                    <input type="number" id="turbidity" name="turbidity" placeholder="Enter the turbidity value" step="0.01" style="width: calc(50% - 16px); padding: 12px; text-align: center;">
+                </div>
+            </div>
+            <input type="submit" value="Predict" style="background-color: #6cb2eb; color: #fff; padding: 15px; border: none; cursor: pointer; border-radius: 8px; font-weight: bold; transition: background-color 0.3s ease;">
+        </form>
+    </div>
+</body>
+
+</html>
