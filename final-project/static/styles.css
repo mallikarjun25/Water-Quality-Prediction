@@ -1,0 +1,97 @@
+body {
+    font-family: 'Helvetica Neue', sans-serif;
+    background: linear-gradient(135deg, #f5f7fa, #b8c6db);
+    margin: 0;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    color: #555;
+}
+
+.container {
+    text-align: center;
+    background-color: #fff;
+    padding: 50px;
+    border-radius: 12px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    margin: 20px;
+    width: 60%;
+}
+
+.input-section {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.centered-input {
+    flex-basis: 100%; /* Full width for centered input */
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+#ph {
+    width: calc(50% - 16px); /* Adjusted width for smaller size */
+    padding: 12px; /* Increased padding for a taller input box */
+    margin-bottom: 15px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    box-sizing: border-box;
+    color: #555;
+    background-color: #f9f9f9;
+}
+
+.left-section,
+.right-section {
+    flex-basis: calc(50% - 20px); /* Each section takes half the width with margin */
+    margin-bottom: 20px; /* Add space between sections */
+    box-sizing: border-box; /* Include padding and border in the total width and height */
+}
+
+.left-section {
+    margin-right: 20px; /* Separate left and right sections */
+}
+
+.right-section {
+    margin-left: 20px; /* Separate left and right sections */
+}
+
+label {
+    margin-top: 20px;
+    margin-bottom: 10px;
+    font-weight: bold;
+    color: #333;
+    display: block;
+}
+
+input {
+    width: calc(100% - 200px); /* Further reduced width for smaller input boxes */
+    padding: 12px; /* Increased padding for taller input boxes */
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    box-sizing: border-box;
+    margin-bottom: 15px;
+    color: #555;
+    background-color: #f9f9f9;
+}
+
+button {
+    background-color: #6cb2eb;
+    color: #fff;
+    padding: 15px;
+    border: none;
+    cursor: pointer;
+    border-radius: 8px;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
+    background-color: #4c8dd8;
+}
+
+#resultSection {
+    margin-top: 20px;
+    color: #555;
+}
