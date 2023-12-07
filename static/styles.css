@@ -25,18 +25,36 @@ body {
     flex-wrap: wrap;
 }
 
-.left-section,
-.right-section {
-    flex-basis: 48%;
+.centered-input {
+    flex-basis: 100%; /* Full width for centered input */
+    text-align: center;
     margin-bottom: 20px;
 }
 
+#ph {
+    width: calc(50% - 16px); /* Adjusted width for smaller size */
+    padding: 12px; /* Increased padding for a taller input box */
+    margin-bottom: 15px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    box-sizing: border-box;
+    color: #555;
+    background-color: #f9f9f9;
+}
+
+.left-section,
+.right-section {
+    flex-basis: calc(50% - 20px); /* Each section takes half the width with margin */
+    margin-bottom: 20px; /* Add space between sections */
+    box-sizing: border-box; /* Include padding and border in the total width and height */
+}
+
 .left-section {
-    margin-right: 2%;
+    margin-right: 20px; /* Separate left and right sections */
 }
 
 .right-section {
-    margin-left: 2%;
+    margin-left: 20px; /* Separate left and right sections */
 }
 
 label {
@@ -48,18 +66,14 @@ label {
 }
 
 input {
-    width: calc(50% - 12px);
-    padding: 12px;
+    width: calc(100% - 200px); /* Further reduced width for smaller input boxes */
+    padding: 12px; /* Increased padding for taller input boxes */
     border: 1px solid #ddd;
     border-radius: 8px;
     box-sizing: border-box;
     margin-bottom: 15px;
     color: #555;
     background-color: #f9f9f9;
-}
-
-.left-section input {
-    margin-left: 0;
 }
 
 button {
@@ -77,7 +91,7 @@ button:hover {
     background-color: #4c8dd8;
 }
 
-#result {
+#resultSection {
     margin-top: 20px;
     color: #555;
 }

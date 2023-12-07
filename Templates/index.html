@@ -2,109 +2,54 @@
 <html lang="en">
 
 <head>
-    <!-- Meta tags for character set and viewport -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <!-- Link to the external stylesheet -->
     <link rel="stylesheet" href="static/styles.css">
-
-    <!-- Defer loading of the JavaScript file -->
-    <script defer src="static/script.js"></script>
-
-    <!-- Title of the webpage -->
     <title>Water Quality Prediction</title>
 </head>
 
 <body>
-    <!-- Main container for the webpage content -->
     <div class="container">
-        <!-- Heading for the webpage -->
         <h2>Water Quality Prediction</h2>
-
-        <!-- Input section of the webpage -->
-        <div class="input-section">
-            <!-- Left section of the input form -->
-            <div class="left-section">
-                <!-- Form for collecting input values, method is set to POST, and action is set to "/predict" -->
-                <form method="POST" action="/predict">
-                    <!-- Input field for pH value -->
-                    <label for="ph">pH Value:</label>
-                    <input type="number" id="ph" name="ph" placeholder="Enter the pH value">
-                    
-                    <!-- Input field for hardness value -->
+        <form action="/predict_waterQ" method="POST">
+            <div class="input-section">
+                <!-- Centre Section-->
+                <div class="centered-input">
+                    <label for="ph">pH:</label>
+                    <input type="number" id="ph" name="ph" placeholder="Enter the pH value" step="0.01" style="width: calc(50% - 16px); padding: 12px; text-align: center;">
+                </div>
+                <!-- Left Section -->
+                <div class="left-section">                    
                     <label for="hardness">Hardness:</label>
-                    <input type="text" id="hardness" name="hardness" placeholder="Enter the hardness value">
+                    <input type="number" id="hardness" name="hardness" placeholder="Enter the hardness value" step="0.01" style="width: calc(50% - 16px); padding: 12px; text-align: center;">
+
+                    <label for="solids">Solids:</label>
+                    <input type="number" id="solids" name="solids" placeholder="Enter the TDS value" step="0.01" style="width: calc(50% - 16px); padding: 12px; text-align: center;">
+
+                    <label for="chloramines">Chloramines :</label>
+                    <input type="number" id="chloramines" name="chloramines" placeholder="Enter the chloramines value" step="0.01" style="width: calc(50% - 16px); padding: 12px; text-align: center;">
+
+                    <label for="sulfate">Sulfate :</label>
+                    <input type="number" id="sulfate" name="sulfate" placeholder="Enter the sulfate value" step="0.01" style="width: calc(50% - 16px); padding: 12px; text-align: center;">
+                </div>
+                <!-- Right Section -->
+                <div class="right-section">
+                    <label for="conductivity">Conductivity :</label>
+                    <input type="number" id="conductivity" name="conductivity" placeholder="Enter the conductivity value" step="0.01" style="width: calc(50% - 16px); padding: 12px; text-align: center;">
+
+                    <label for="organicCarbon">Organic Carbon :</label>
+                    <input type="number" id="organicCarbon" name="organicCarbon" placeholder="Enter the organic carbon value" step="0.01" style="width: calc(50% - 16px); padding: 12px; text-align: center;">
                     
-                    <!-- Input field for TDS value (Solids) -->
-                    <label for="solids">Solids (TDS):</label>
-                    <input type="text" id="solids" name="solids" placeholder="Enter the TDS value">
-                    
-                    <!-- Input field for chloramines value -->
-                    <label for="chloramines">Chloramines:</label>
-                    <input type="text" id="chloramines" name="chloramines" placeholder="Enter the chloramines value">
-                   
-                    <!-- Input field for sulfate value -->
-                    <label for="sulfate">Sulfate:</label>
-                    <input type="text" id="sulfate" name="sulfate" placeholder="Enter the sulfate value">
-                </form>
+                    <label for="trihalomethanes">Trihalomethanes  :</label>
+                    <input type="number" id="trihalomethanes" name="trihalomethanes" placeholder="Enter the trihalomethanes value" step="0.01" style="width: calc(50% - 16px); padding: 12px; text-align: center;">
+
+                    <label for="turbidity">Turbidity :</label>
+                    <input type="number" id="turbidity" name="turbidity" placeholder="Enter the turbidity value" step="0.01" style="width: calc(50% - 16px); padding: 12px; text-align: center;">
+                </div>
             </div>
-
-            <!-- Right section of the input form -->
-            <div class="right-section">
-                <!-- Form for collecting input values, method is set to POST, and action is set to "/predict" -->
-                <form method="POST" action="/predict">
-                    <!-- Input field for conductivity value -->
-                    <label for="conductivity">Conductivity:</label>
-                    <input type="text" id="conductivity" name="conductivity" placeholder="Enter the conductivity value">
-                    
-                    <!-- Input field for organic carbon value -->
-                    <label for="organicCarbon">Organic Carbon:</label>
-                    <input type="text" id="organicCarbon" name="organicCarbon" placeholder="Enter the organic carbon value">
-    
-                    <!-- Input field for trihalomethanes value -->
-                    <label for="trihalomethanes">Trihalomethanes:</label>
-                    <input type="text" id="trihalomethanes" name="trihalomethanes" placeholder="Enter the trihalomethanes value">
-
-                    <!-- Input field for turbidity value -->
-                    <label for="turbidity">Turbidity:</label>
-                    <input type="text" id="turbidity" name="turbidity" placeholder="Enter the turbidity value">
-                </form>
-            </div>
-        </div>
-
-        <!-- Button to trigger the prediction -->
-        <button onclick="predictWaterQuality()">Predict Water Potability</button> 
-
-        <!-- Placeholder for displaying the prediction result -->
-        <div id="result"></div>
+            <input type="submit" value="Predict" style="background-color: #6cb2eb; color: #fff; padding: 15px; border: none; cursor: pointer; border-radius: 8px; font-weight: bold; transition: background-color 0.3s ease;">
+        </form>
     </div>
-
-    <!-- JavaScript code for fetching prediction and handling the result -->
-    <script>
-        function predictWaterQuality() {
-            // Get the form element by its ID
-            var form = document.getElementById("waterQualityForm");
-
-            // Create FormData object from the form
-            var formData = new FormData(form);
-
-            // Fetch prediction from the server using a POST request
-            fetch('/predict', {
-                method: 'POST',
-                body: formData
-            })
-            .then(response => response.json())
-            .then(data => {
-                // Handle the returned prediction result
-                document.getElementById("result").innerHTML = "Predicted Potability: " + data.prediction;
-            })
-            .catch(error => {
-                // Log and handle errors
-                console.error('Error:', error);
-            });
-        }
-    </script> 
 </body>
 
 </html>
